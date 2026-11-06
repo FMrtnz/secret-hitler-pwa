@@ -1,0 +1,67 @@
+:root {
+  --ink: #12202e;
+  --panel: #1b2f42;
+  --bone: #edeae0;
+  --muted: #8fa3b5;
+  --lib: #4a90d9;
+  --fas: #d8431f;
+  --head: Impact, Haettenschweiler, 'Arial Narrow Bold', 'Arial Narrow', sans-serif;
+  box-sizing: border-box;
+  padding: env(safe-area-inset-top, 0) 0 env(safe-area-inset-bottom, 0);
+}
+*, *::before, *::after { box-sizing: inherit; }
+html, body, #root { min-height: 100%; margin: 0; }
+body { background: var(--ink); color: var(--bone); font: 17px/1.45 system-ui, -apple-system, 'Segoe UI', sans-serif; }
+.app { max-width: 480px; margin: 0 auto; padding: 16px; }
+.screen { display: flex; flex-direction: column; gap: 14px; padding-top: 44px; }
+h1 { font: 400 2.1rem/1.05 var(--head); letter-spacing: .02em; margin: 0; }
+h2 { font: 400 1.15rem var(--head); letter-spacing: .03em; margin: 10px 0 0; color: var(--muted); }
+p { margin: 0; }
+.subtitle, .muted { color: var(--muted); }
+.small { font-size: .82rem; }
+.warning { color: #ffb199; }
+button, input { font: inherit; color: inherit; }
+button { border: 0; border-radius: 10px; padding: 14px 16px; background: var(--panel); cursor: pointer; }
+button:disabled { opacity: .4; cursor: default; }
+button:focus-visible, input:focus-visible { outline: 3px solid var(--bone); outline-offset: 2px; }
+.primary { background: var(--bone); color: var(--ink); font-weight: 700; }
+.ghost { background: transparent; border: 1px solid var(--muted); }
+.board-btn { position: fixed; top: calc(8px + env(safe-area-inset-top, 0)); right: 12px; z-index: 5; padding: 8px 14px; background: var(--panel); border: 1px solid var(--muted); }
+input { width: 100%; padding: 13px 14px; border-radius: 10px; border: 1px solid var(--muted); background: var(--panel); }
+.list { display: flex; flex-direction: column; gap: 8px; }
+.row { display: flex; gap: 8px; }
+.choice.on { background: var(--bone); color: var(--ink); font-weight: 700; }
+.gate { display: flex; flex-direction: column; gap: 12px; align-items: stretch; text-align: center; padding: 28px 8px; border: 2px dashed var(--muted); border-radius: 14px; }
+.gate-name { font: 400 2.6rem var(--head); }
+.role { border-radius: 14px; padding: 22px; text-align: center; color: #fff; }
+.role strong { display: block; font: 400 2.4rem var(--head); }
+.role.liberal { background: var(--lib); }
+.role.fascist { background: var(--fas); }
+.cards { display: flex; gap: 10px; justify-content: center; }
+.card { flex: 1; max-width: 120px; aspect-ratio: 2 / 3; font: 400 1.2rem var(--head); color: #fff; border: 3px solid transparent; }
+.card.liberal { background: var(--lib); }
+.card.fascist { background: var(--fas); }
+.card.selected { border-color: var(--bone); transform: translateY(-6px); }
+.card:disabled { opacity: 1; }
+.vote { flex: 1; font: 400 2rem var(--head); padding: 26px 0; }
+.ja { background: var(--lib); color: #fff; }
+.nein { background: var(--fas); color: #fff; }
+.ja-text { color: #8dc0f5; }
+.nein-text { color: #ff9a7e; }
+.players { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.players li { display: flex; justify-content: space-between; gap: 8px; padding: 10px 12px; background: var(--panel); border-radius: 8px; }
+.players li.dead span:first-child { text-decoration: line-through; opacity: .6; }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.tags em { font-style: normal; font-size: .8rem; padding: 2px 8px; border-radius: 99px; border: 1px solid var(--muted); }
+.track { display: flex; gap: 6px; }
+.slot { flex: 1; min-height: 76px; border-radius: 8px; border: 2px solid; display: flex; flex-direction: column; align-items: center; justify-content: center; font: 400 1.4rem var(--head); text-align: center; }
+.slot small { font: 400 .62rem/1.1 system-ui, sans-serif; color: var(--muted); padding: 0 2px; }
+.slot.liberal { border-color: var(--lib); }
+.slot.fascist { border-color: var(--fas); }
+.slot.liberal.filled { background: var(--lib); }
+.slot.fascist.filled { background: var(--fas); }
+.slot.filled small { color: #fff; }
+.dots { display: flex; align-items: center; gap: 8px; }
+.dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--muted); }
+.dot.on { background: var(--fas); border-color: var(--fas); }
+@media (prefers-reduced-motion: no-preference) { .card { transition: transform .12s; } }
