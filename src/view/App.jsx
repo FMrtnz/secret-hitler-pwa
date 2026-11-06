@@ -33,6 +33,13 @@ export default function App() {
   const inGame = game.state.phase !== PHASES.SETUP;
   const Screen = SCREENS[game.state.phase];
 
+  const handleReset = () => {
+    if (window.confirm('Abandon the current game and start a new one?')) {
+      setShowBoard(false);
+      game.actions.reset();
+    }
+  };
+
   return (
     <div className="app">
       {inGame && (
@@ -41,7 +48,7 @@ export default function App() {
         </button>
       )}
       {/* Closing the board remounts the screen, so any secret info is hidden again. */}
-      {showBoard && inGame ? <Board {...game} /> : <Screen key={game.state.phase} {...game} />}
+       {showBoard && inGame ? <Board {...game} onReset={handleReset} /> : <Screen key={game.state.phase} {...game} />}
     </div>
   );
 }

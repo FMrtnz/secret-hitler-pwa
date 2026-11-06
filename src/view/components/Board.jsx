@@ -2,7 +2,7 @@ import { POWER_LABELS, POWER_TRACKS, RULES } from '../../model/constants.js';
 
 const trackFor = (count) => (count <= 6 ? POWER_TRACKS.small : count <= 8 ? POWER_TRACKS.medium : POWER_TRACKS.large);
 
-export default function Board({ state }) {
+export default function Board({ state, onReset }) {
   const { players } = state;
   const aliveCount = players.filter((p) => p.alive).length;
   const powers = trackFor(players.length);
@@ -58,6 +58,7 @@ export default function Board({ state }) {
         ))}
       </ul>
       <p className="muted">Draw pile: {state.drawPile.length} cards</p>
+      <button className="danger" onClick={onReset}>Abandon game</button>
     </main>
   );
 }

@@ -65,3 +65,4 @@ input { width: 100%; padding: 13px 14px; border-radius: 10px; border: 1px solid 
 .dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--muted); }
 .dot.on { background: var(--fas); border-color: var(--fas); }
 @media (prefers-reduced-motion: no-preference) { .card { transition: transform .12s; } }
+.danger { background: transparent; border: 1px solid var(--fas); color: #ff9a7e; margin-top: 12px; }
