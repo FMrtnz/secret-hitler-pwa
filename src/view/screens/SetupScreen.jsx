@@ -11,7 +11,7 @@ export default function SetupScreen({ actions }) {
   const setName = (i, value) => setNames(names.map((n, idx) => (idx === i ? value : n)));
 
   return (
-    <Screen title="Secret Hitler" subtitle="Pass-and-play companion. Enter the players in seating order.">
+    <Screen title="Secret Hitler" subtitle="A pass-and-play companion. Enter the players in seating order.">
       <div className="list">
         {names.map((name, i) => (
           <div className="row" key={i}>

@@ -12,8 +12,8 @@ export default defineConfig({
         name: 'Secret Hitler - Pass & Play',
         short_name: 'SH Pass&Play',
         description: 'Non-commercial pass-and-play companion for Secret Hitler.',
-        theme_color: '#12202E',
-        background_color: '#12202E',
+        theme_color: '#2A2118',
+        background_color: '#E9DDC0',
         display: 'standalone',
         orientation: 'portrait',
         icons: [

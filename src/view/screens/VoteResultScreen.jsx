@@ -5,6 +5,7 @@ export default function VoteResultScreen({ state, derived, actions }) {
   const tracker = state.electionTracker + 1;
   return (
     <Screen title={passed ? 'The government is elected' : 'The vote failed'}>
+      <span className={`stamp ${passed ? 'lib' : 'fas'}`}>{passed ? 'Approved' : 'Rejected'}</span>
       <ul className="players">
         {state.voters.map((i) => (
           <li key={i}>
