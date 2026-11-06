@@ -3,12 +3,14 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
+  base: './', 
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['icon.svg'],
       manifest: {
+        start_url: './',
         name: 'Secret Hitler - Pass & Play',
         short_name: 'SH Pass&Play',
         description: 'Non-commercial pass-and-play companion for Secret Hitler.',
