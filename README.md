@@ -36,8 +36,15 @@ Useful links:
 
 This app re-implements the game rules only. It ships none of the original artwork, text or card designs.
 
+Fonts (self-hosted through [Fontsource](https://fontsource.org), SIL Open Font License 1.1):
+**Stardos Stencil** (Vernon Adams) for titles and **Courier Prime** (Quote-Unquote Apps) for text. To change
+the look, edit the `--head` and `--body` variables at the top of `src/view/styles.css`.
+
 ## How the app works
 
+0. **Intro menu** - The app always opens on a menu with three buttons: *Lancer une partie* (start a game),
+   *Instructions* (rules and how to use the app) and *Crédits* (about the game and its authors). If a game is
+   still in progress, a *Reprendre la partie* button appears so that it can be resumed.
 1. **Setup** - Enter 5 to 10 player names, in seating order. The app deals secret roles at random
    (Liberals, Fascists and one Hitler) and builds the shuffled 17-card policy deck (6 Liberal, 11 Fascist).
 2. **Secret roles** - The phone asks for each player in turn. Tap *I am <name>* to reveal your role,
@@ -75,9 +82,9 @@ src/
     useGameController.js  #   React hook: state, intent-based actions, derived data
     storage.js            #   localStorage persistence
   view/                   # React components, presentation only
-    App.jsx               #   picks the screen for the current phase, board toggle
+    App.jsx               #   top-level navigation (menu, instructions, credits, game), picks the screen for the current phase, board toggle
     components/           #   Screen, PrivateGate (anti-peek), PolicyCard, Board
-    screens/              #   one screen per game phase
+    screens/              #   MenuScreen, InstructionsScreen, CreditsScreen + one screen per game phase
     styles.css
 tests/simulate.mjs        # Plays thousands of random games on the model
 ```

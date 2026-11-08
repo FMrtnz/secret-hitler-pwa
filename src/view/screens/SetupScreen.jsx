@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import Screen from '../components/Screen.jsx';
 import { RULES } from '../../model/constants.js';
+import {BackButtonHeader,BackButtonGhost, BottomCredits} from '../Utils.jsx'
 
-export default function SetupScreen({ actions }) {
+
+export default function SetupScreen({ actions, onMenu }) {
   const [names, setNames] = useState(Array(RULES.MIN_PLAYERS).fill(''));
   const clean = names.map((n) => n.trim());
   const unique = new Set(clean.map((n) => n.toLowerCase())).size === clean.length;
@@ -25,7 +27,7 @@ export default function SetupScreen({ actions }) {
       {names.length < RULES.MAX_PLAYERS && <button className="ghost" onClick={() => setNames([...names, ''])}>Add a player</button>}
       {!unique && clean.every(Boolean) && <p className="warning">Each player needs a different name.</p>}
       <button className="primary" disabled={!valid} onClick={() => actions.startGame(clean)}>Start game</button>
-      <p className="muted small">Non-commercial, educational fan project. Secret Hitler is by Max Temkin, Mike Boxleiter, Tommy Maranges and Mac Schubert (CC BY-NC-SA 4.0).</p>
+      {BottomCredits()}
     </Screen>
   );
 }

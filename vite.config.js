@@ -9,6 +9,8 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['icon.svg'],
+      // Also precache fonts (woff2), otherwise they would be missing offline.
+      workbox: { globPatterns: ['**/*.{js,css,html,svg,png,woff2}'] },
       manifest: {
         start_url: './',
         name: 'Secret Hitler - Pass & Play',

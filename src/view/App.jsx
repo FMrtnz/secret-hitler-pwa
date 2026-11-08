@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { useGameController } from '../controller/useGameController.js';
 import { PHASES } from '../model/constants.js';
 import Board from './components/Board.jsx';
+import MenuScreen from './screens/MenuScreen.jsx';
+import InstructionsScreen from './screens/InstructionsScreen.jsx';
+import CreditsScreen from './screens/CreditsScreen.jsx';
 import SetupScreen from './screens/SetupScreen.jsx';
 import RoleRevealScreen from './screens/RoleRevealScreen.jsx';
 import NominationScreen from './screens/NominationScreen.jsx';
@@ -27,11 +30,31 @@ const SCREENS = {
   [PHASES.GAME_OVER]: GameOverScreen
 };
 
+// Top-level views, outside of the game state machine (which lives in the model).
+const VIEWS = Object.freeze({ MENU: 'menu', GAME: 'game', INSTRUCTIONS: 'instructions', CREDITS: 'credits' });
+
 export default function App() {
   const game = useGameController();
+  const [view, setView] = useState(VIEWS.MENU);
   const [showBoard, setShowBoard] = useState(false);
   const inGame = game.state.phase !== PHASES.SETUP;
+  // A finished game is not worth resuming: the menu only offers to resume a game still being played.
+  const hasGame = inGame && game.state.phase !== PHASES.GAME_OVER;
   const Screen = SCREENS[game.state.phase];
+
+  const goTo = (next) => {
+    setShowBoard(false);
+    setView(next);
+  };
+
+  // A saved game survives in localStorage: leaving for the menu never loses it.
+  const handlePlay = () => {
+    if (inGame) {
+      if (hasGame && !window.confirm('A session is in progress. Abandon it and start a new one?')) return;
+      game.actions.reset();
+    }
+    goTo(VIEWS.GAME);
+  };
 
   const handleReset = () => {
     if (window.confirm('Abandon the current game and start a new one?')) {
@@ -39,6 +62,36 @@ export default function App() {
       game.actions.reset();
     }
   };
+
+  if (view === VIEWS.MENU) {
+    return (
+      <div className="app">
+        <MenuScreen
+          hasGame={hasGame}
+          onPlay={handlePlay}
+          onResume={() => goTo(VIEWS.GAME)}
+          onInstructions={() => goTo(VIEWS.INSTRUCTIONS)}
+          onCredits={() => goTo(VIEWS.CREDITS)}
+        />
+      </div>
+    );
+  }
+
+  if (view === VIEWS.INSTRUCTIONS) {
+    return (
+      <div className="app">
+        <InstructionsScreen onBack={() => goTo(VIEWS.MENU)} />
+      </div>
+    );
+  }
+
+  if (view === VIEWS.CREDITS) {
+    return (
+      <div className="app">
+        <CreditsScreen onBack={() => goTo(VIEWS.MENU)} />
+      </div>
+    );
+  }
 
   return (
     <div className="app">
@@ -48,7 +101,11 @@ export default function App() {
         </button>
       )}
       {/* Closing the board remounts the screen, so any secret info is hidden again. */}
-       {showBoard && inGame ? <Board {...game} onReset={handleReset} /> : <Screen key={game.state.phase} {...game} />}
+      {showBoard && inGame ? (
+        <Board {...game} onReset={handleReset} onMenu={() => goTo(VIEWS.MENU)} />
+      ) : (
+        <Screen key={game.state.phase} {...game} onMenu={() => goTo(VIEWS.MENU)} />
+      )}
     </div>
   );
 }
