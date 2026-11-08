@@ -5,9 +5,6 @@
   --admin-beige: #F5F5DC;  /* Light beige, aged paper */
   --beige-dark: #D4C5A9;   /* Darker beige, for borders */
   --admin-gray: #4A4A4A;   /* Gray for secondary text */
-  --off-white: #FAF9F6;    /* Off-white, main background */
-  --bone: #edeae0;
-  --muted: #8fa3b5;
   --lib: #4a90d9;
   --fas: #d8431f;
   /* 1940s feel: stencilled serif for titles, typewriter for text. Swap these two lines to change fonts. */
@@ -37,7 +34,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--admin-black
 input { width: 100%; padding: 13px 14px; border-radius: 10px; border: 1px solid var(--admin-black); background: var(--admin-beige); }
 .list { display: flex; flex-direction: column; gap: 8px; }
 .row { display: flex; gap: 8px; }
-.choice.on { background: var(--bone); color: var(--admin-black); font-weight: 700; }
+.choice.on { background: var(--admin-beige); color: var(--admin-black); font-weight: 700; }
 .gate { display: flex; flex-direction: column; gap: 12px; align-items: stretch; text-align: center; padding: 28px 8px; border: 2px dashed var(--admin-black); border-radius: 14px; }
 .gate-name { font: 700 2.6rem var(--head); }
 .role { border-radius: 14px; padding: 22px; text-align: center; color: #fff; }
@@ -48,7 +45,7 @@ input { width: 100%; padding: 13px 14px; border-radius: 10px; border: 1px solid 
 .card { flex: 1; max-width: 120px; aspect-ratio: 2 / 3; font: 700 1.2rem var(--head); color: #fff; border: 3px solid transparent; }
 .card.liberal { background: var(--lib); }
 .card.fascist { background: var(--fas); }
-.card.selected { border-color: var(--bone); transform: translateY(-6px); }
+.card.selected { border-color: var(--admin-beige); transform: translateY(-6px); }
 .card:disabled { opacity: 1; }
 .vote { flex: 1; font: 700 2rem var(--head); padding: 26px 0; }
 .ja { background: var(--lib); color: #fff; }
@@ -59,7 +56,7 @@ input { width: 100%; padding: 13px 14px; border-radius: 10px; border: 1px solid 
 .players li { display: flex; justify-content: space-between; gap: 8px; padding: 10px 12px; background: var(--admin-beige); border-radius: 8px; border: var(--admin-black) 1px solid; }
 .players li.dead span:first-child { text-decoration: line-through; opacity: .6; }
 .tags { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
-.tags em { font-style: normal; font-size: .8rem; padding: 2px 8px; border-radius: 99px; border: 1px solid var(--muted); }
+.tags em { font-style: normal; font-size: .8rem; padding: 2px 8px; border-radius: 99px; border: 1px solid var(--admin-gray); }
 .track { display: flex; gap: 6px; }
 .slot { flex: 1; min-height: 76px; border-radius: 8px; border: 2px solid; display: flex; flex-direction: column; align-items: center; justify-content: center; font: 700 1.4rem var(--head); text-align: center; }
 .slot small { font: 400 .62rem/1.1 system-ui, -apple-system, 'Segoe UI', sans-serif; color: var(--admin-black); padding: 0 2px; }
@@ -69,7 +66,7 @@ input { width: 100%; padding: 13px 14px; border-radius: 10px; border: 1px solid 
 .slot.fascist.filled { background: var(--fas); }
 .slot.filled small { color: #fff; }
 .dots { display: flex; align-items: center; gap: 8px; }
-.dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--muted); }
+.dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--admin-gray); }
 .dot.on { background: var(--fas); border-color: var(--fas); }
 @media (prefers-reduced-motion: no-preference) { .card { transition: transform .12s; } }
 .danger { background: transparent; border: 1px solid var(--admin-red); color: var(--admin-red); margin-top: 12px; }
@@ -83,10 +80,10 @@ input { width: 100%; padding: 13px 14px; border-radius: 10px; border: 1px solid 
 .rule { width: 70%; align-self: center; margin: 2px 0; border: 0; border-top: 4px double var(--admin-black); }
 .menu-nav { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
 .menu-btn, .menu-nav .primary { font: 700 1.15rem var(--head); letter-spacing: .14em; text-transform: uppercase; padding: 16px; border-radius: 4px; }
-.menu-btn { background: transparent; border: 2px solid var(--bone); }
-.menu-btn:active { background: var(--bone); }
+.menu-btn { background: transparent; border: 2px solid var(--admin-beige); }
+.menu-btn:active { background: var(--admin-beige); }
 
-.back-btn { position: fixed; top: calc(8px + env(safe-area-inset-top, 0)); left: 12px; z-index: 5; padding: 8px 14px; background: var(--bone); border: 1px solid var(--admin-black); }
+.back-btn { position: fixed; top: calc(8px + env(safe-area-inset-top, 0)); left: 12px; z-index: 5; padding: 8px 14px; background: var(--admin-beige); border: 1px solid var(--admin-black); }
 
 .doc { display: flex; flex-direction: column; gap: 10px; }
 .doc h2 { margin-top: 18px; padding-bottom: 4px; color: var(--admin-black); border-bottom: 1px solid var(--admin-black); }
