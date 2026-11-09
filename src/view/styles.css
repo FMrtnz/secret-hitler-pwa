@@ -19,6 +19,7 @@ body { background: var(--beige-dark); color: var(--admin-black); font: 17px/1.45
 .app { max-width: 480px; margin: 0 auto; padding: 16px; }
 .screen { display: flex; flex-direction: column; gap: 14px; padding-top: 44px; }
 h1 { font: 700 2.1rem/1.05 var(--head); letter-spacing: .02em; margin: 0; }
+h1.hide { opacity: 0; height: 0;}
 h2 { font: 700 1.15rem var(--admin-black); letter-spacing: .03em; margin: 10px 0 0; color: var(--admin-black); }
 p { margin: 0; }
 .subtitle, .muted { color: var(--admin-black); }
@@ -73,7 +74,7 @@ input { width: 100%; padding: 13px 14px; border-radius: 10px; border: 1px solid 
 
 /* ---------- Intro menu, instructions and credits ---------- */
 .menu { min-height: 82vh; min-height: 82dvh; justify-content: center; align-items: stretch; text-align: center; gap: 16px; padding-top: 24px; }
-.menu .emblem { align-self: center; }
+.menu .logo { align-self: center; }
 .menu-kicker { font-size: .8rem; letter-spacing: .32em; text-transform: uppercase; color: var(--admin-black); }
 .menu-title { font: 700 clamp(2.8rem, 16vw, 4rem)/.95 var(--head); letter-spacing: .05em; text-transform: uppercase; }
 .menu-sub { color: var(--admin-black); }

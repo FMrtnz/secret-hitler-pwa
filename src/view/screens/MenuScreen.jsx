@@ -1,5 +1,6 @@
 import Emblem from '../components/Emblem.jsx';
 import {BottomCredits} from '../Utils.jsx';
+import {LogoSH} from '../components/Logo.jsx';
 
 /**
  * Intro menu shown at every launch, before the game itself.
@@ -8,14 +9,10 @@ import {BottomCredits} from '../Utils.jsx';
 export default function MenuScreen({ hasGame, onPlay, onResume, onInstructions, onCredits }) {
   return (
     <main className="screen menu">
-      <Emblem size={84} />
       <p className="menu-kicker">Social game</p>
-      <h1 className="menu-title">
-        Secret
-        <br />
-        Hitler
-      </h1>
-      <p className="menu-sub">Pass and Play game</p>
+      <h1 className="menu-title hide">Secret Hitler</h1>
+      <LogoSH width={220}/>
+      <p className="menu-sub">A pass-and-play companion.</p>
       <hr className="rule" />
 
       <nav className="menu-nav" aria-label="Principal menu">
