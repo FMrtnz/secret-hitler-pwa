@@ -1,7 +1,9 @@
+
 export function LogoSH({width, height}) {
+  const logo = `${import.meta.env.BASE_URL}logoSH.svg`
   return (
     <>
-      <img className="logo" src="../../../public/logoSH.svg" width={width} height={height} alt="Logo" />
+      <img className="logo" img={logo} width={width} height={height} alt="Secret Hitler" />
     </>
   );
 }
