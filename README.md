@@ -42,9 +42,9 @@ the look, edit the `--head` and `--body` variables at the top of `src/view/style
 
 ## How the app works
 
-0. **Intro menu** - The app always opens on a menu with three buttons: *Lancer une partie* (start a game),
+0. **Intro menu** - The app always opens on a menu with three buttons: *Start a game*,
    *Instructions* (rules and how to use the app) and *Crédits* (about the game and its authors). If a game is
-   still in progress, a *Reprendre la partie* button appears so that it can be resumed.
+   still in progress, a *Continue a game* button appears so that it can be resumed.
 1. **Setup** - Enter 5 to 10 player names, in seating order. The app deals secret roles at random
    (Liberals, Fascists and one Hitler) and builds the shuffled 17-card policy deck (6 Liberal, 11 Fascist).
 2. **Secret roles** - The phone asks for each player in turn. Tap *I am <name>* to reveal your role,
