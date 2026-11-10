@@ -15,7 +15,7 @@ export default function MenuScreen({ hasGame, onPlay, onResume, onInstructions, 
       <p className="menu-sub">A pass-and-play companion.</p>
       <hr className="rule" />
 
-      <nav className="menu-nav" aria-label="Principal menu">
+      <nav className="menu-nav" aria-label="Main menu">
         {hasGame && (
           <button className="primary" onClick={onResume}>
             continue the game

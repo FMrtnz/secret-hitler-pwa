@@ -58,7 +58,7 @@ export default function Board({ state, onReset, onMenu }) {
         ))}
       </ul>
       <p className="muted">Draw pile: {state.drawPile.length} cards</p>
-      <button className="ghost" onClick={onMenu}>Principal menu</button>
+      <button className="ghost" onClick={onMenu}>Main menu</button>
       <button className="danger" onClick={onReset}>Abandon game</button>
     </main>
   );
